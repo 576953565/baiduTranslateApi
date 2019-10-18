@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<select class="select">
+			<option value="zh" class="translate">中文</option>
+			<option value="en" class="translate">英语</option>
+			<option value="kor" class="translate">韩语</option>
+			<option value="fra" class="translate">法语</option>
+			<option value="jp" class="translate">日语</option>
+		</select>
+		<h2 class="title translate">苹果</h2>
+		<ol>
+			<li class="nav translate">橘子</li>
+			<li class="home translate">首页</li>
+			<li class="loc translate">历史</li>
+			<li class="nav translate">测试</li>
+			<li class="home translate">订单</li>
+			<li class="loc translate">买卖</li>
+		</ol>
+		<script src="JS/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="JS/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="JS/translateDom.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var all  = $('.translate');
+			var arr = [];
+			for (var i=0;i<all.length;i++) {
+				arr.push(all[i].innerText)
+			}
+			var query = arr.join('\n');
+			$(".select").change(function(){
+				var val = $(".select").val();
+				switchLanguages("zh",val,query,all)
+			})
+		</script>
+	</body>
+</html>
